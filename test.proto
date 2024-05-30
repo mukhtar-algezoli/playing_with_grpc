@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service Routing {
+    rpc getRoute (point) returns (direction);
+}
+
+message point {
+    int32 lat=1;
+    int32 lang=2;
+}
+
+message direction {
+    string dir=1;
+}
+
+enum Dir{
+    North=0;
+    South=1;
+    East=2;
+    West=3;
+}
+
+
