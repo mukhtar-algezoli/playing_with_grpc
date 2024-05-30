@@ -7,7 +7,8 @@ import grpc
 import test_pb2_grpc
 import test_pb2
 def run():
-    with grpc.insecure_channel("localhost:50051") as channel:
+    with grpc.insecure_channel("10.128.0.5:50051") as channel:
+        print("runing client request")
         stub = test_pb2_grpc.RoutingStub(channel)
         # calling function from Server
         # feature = stub.GetDirMeth(test_pb2.point(lang=35, lat=22))

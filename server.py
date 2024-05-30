@@ -10,9 +10,7 @@ from concurrent import futures
 
 class RoutingServicer(test_pb2_grpc.RoutingServicer):
     def getRoute(self, request, context):
-        print("I am here")
-        print(request.lat)
-        print(request.lang)
+        print(f"{request=}")
         return test_pb2.direction(dir="North")
 
 def serve():
@@ -22,6 +20,7 @@ def serve():
     )
     server.add_insecure_port("[::]:50051")
     server.start()
+    print("running Server on port:50051")
     server.wait_for_termination()
 
 
